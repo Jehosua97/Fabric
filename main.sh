@@ -44,7 +44,7 @@ echo "CONGRATULATION YOUR NETWORK IS UP RUNNING"
 
 #Instalacion de dependencias de API
 cd api-2.0
-echo "Installing the API dependencies"
+echo "Installing the API dependencies"  
 npm install
 
 #Generating the conection for each organization
@@ -57,26 +57,19 @@ cd ..
 echo "Running the server"
 nodemon app.js
 
+##56. Adding a new smart contract in the same channel
+#cd ..
+#./deployDocumentCC.sh
+
+##Opening the HyperFabric client
+#echo "Copying the hyper ledger configuration to the explorer"
+#sudo cp -r artifacts/channel/crypto-config Explorer
+
+##Changing the name of keystore to priv_sk
+#sudo mv Explorer/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/22a47d8d7f58709fc7d4136fc0dde6457b107a750ff9de371205a73f865d6525_sk Explorer/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk
+#We have to change the path /etc/data/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk
+
 #Open the client in web
-cd ..
 cd Explorer
 echo "Creating the Web interface"
 docker-compose up -d
-
-##56. Adding a new smart contract in the same channel
-cd ..
-./deployDocumentCC.sh
-
-##Opening the HyperFabric client
-echo "Copying the hyper ledger configuration to the explorer"
-sudo cp -r artifacts/channel/crypto-config Explorer
-
-##Changing the name of keystore to priv_sk
-sudo mv Explorer/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/22a47d8d7f58709fc7d4136fc0dde6457b107a750ff9de371205a73f865d6525_sk Explorer/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk
-#We have to change the path /etc/data/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp/keystore/priv_sk
-
-##Running the HP client 
-cd Explorer
-echo "Runnig the Hyper client in web"
-docker-compose up -d
-

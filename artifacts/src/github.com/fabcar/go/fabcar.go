@@ -18,12 +18,32 @@ type SmartContract struct {
 var logger = flogging.MustGetLogger("fabcar_cc")
 
 type Car struct {
-	ID      string `json:"id"`
-	Make    string `json:"make"`
-	Model   string `json:"model"`
-	Color   string `json:"color"`
-	Owner   string `json:"owner"`
-	AddedAt uint64 `json:"addedAt"`
+	ID             string `json:"id"`
+	Marca          string `json:"marca"`
+	Modelo         string `json:"modelo"`
+	Anio           string `json:"anio"`
+	Placas         string `json:"placas"`
+	VerificentroId string `json:"verificentroid"`
+	TecnicoId      string `json:"tecnicoid"`
+	OdometroId     string `json:"odometroid"`
+	CCVValId       string `json:"ccvvalid"`
+	ValidadorId    string `json:"validadorid"`
+	Status         string `json:"status"`
+	TapaGasolina   string `json:"tapagasolina"`
+	BayonetaAceite string `json:"bayonetaaceite"`
+	FiltroAire     string `json:"filtroaire"`
+	TuboEscape     string `json:"tuboescape"`
+	TaponRadiador  string `json:"taponradiador"`
+	MangueraVacio  string `json:"mangueravacio"`
+	Ruedas         string `json:"ruedas"`
+	LucesTyD       string `json:"lucestyd"`
+	CO             string `json:"co"`
+	CO2            string `json:"co2"`
+	O2             string `json:"o2"`
+	NOxppm         string `json:"noxppm"`
+	HCxpmm         string `json:"hidrocarburo"`
+	Lambda         string `json:"lambda"`
+	AddedAt        uint64 `json:"addedAt"`
 }
 
 func (s *SmartContract) CreateCar(ctx contractapi.TransactionContextInterface, carData string) (string, error) {
@@ -48,38 +68,38 @@ func (s *SmartContract) CreateCar(ctx contractapi.TransactionContextInterface, c
 	return ctx.GetStub().GetTxID(), ctx.GetStub().PutState(car.ID, carAsBytes)
 }
 
+/*func (s *SmartContract) UpdateCarOwner(ctx contractapi.TransactionContextInterface, carID string, newOwner string) (string, error) {
 //
-func (s *SmartContract) UpdateCarOwner(ctx contractapi.TransactionContextInterface, carID string, newOwner string) (string, error) {
-
-	if len(carID) == 0 {
-		return "", fmt.Errorf("Please pass the correct car id")
-	}
-
-	carAsBytes, err := ctx.GetStub().GetState(carID)
-
-	if err != nil {
-		return "", fmt.Errorf("Failed to get car data. %s", err.Error())
-	}
-
-	if carAsBytes == nil {
-		return "", fmt.Errorf("%s does not exist", carID)
-	}
-
-	car := new(Car)
-	_ = json.Unmarshal(carAsBytes, car)
-
-	car.Owner = newOwner
-
-	carAsBytes, err = json.Marshal(car)
-	if err != nil {
-		return "", fmt.Errorf("Failed while marshling car. %s", err.Error())
-	}
-
-	//  txId := ctx.GetStub().GetTxID()
-
-	return ctx.GetStub().GetTxID(), ctx.GetStub().PutState(car.ID, carAsBytes)
-
-}
+//	if len(carID) == 0 {
+//		return "", fmt.Errorf("Please pass the correct car id")
+//	}
+//
+//	carAsBytes, err := ctx.GetStub().GetState(carID)
+//
+//	if err != nil {
+//		return "", fmt.Errorf("Failed to get car data. %s", err.Error())
+//	}
+//
+//	if carAsBytes == nil {
+//		return "", fmt.Errorf("%s does not exist", carID)
+//	}
+//
+//	car := new(Car)
+//	_ = json.Unmarshal(carAsBytes, car)
+//
+//	car.Owner = newOwner
+//
+//	carAsBytes, err = json.Marshal(car)
+//	if err != nil {
+//		return "", fmt.Errorf("Failed while marshling car. %s", err.Error())
+//	}
+//
+//	  txId := ctx.GetStub().GetTxID()
+//
+//	return ctx.GetStub().GetTxID(), ctx.GetStub().PutState(car.ID, carAsBytes)
+//
+//}
+*/
 
 func (s *SmartContract) GetHistoryForAsset(ctx contractapi.TransactionContextInterface, carID string) (string, error) {
 

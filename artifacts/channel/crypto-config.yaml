@@ -23,7 +23,35 @@ OrdererOrgs:
         SANS:
             - "localhost"
             - "127.0.0.1"
-
+      - Hostname: orderer4
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer5
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer6
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer7
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer8
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer9
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+      - Hostname: orderer10
+        SANS:
+            - "localhost"
+            - "127.0.0.1"
+        
 # ---------------------------------------------------------------------------
 # "PeerOrgs" - Definition of organizations managing peer nodes
 # ---------------------------------------------------------------------------
@@ -47,6 +75,118 @@ PeerOrgs:
 
   - Name: Org2
     Domain: org2.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+    
+  - Name: Org3
+    Domain: org3.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+    
+  - Name: Org4
+    Domain: org4.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org5
+    Domain: org5.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org6
+    Domain: org6.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org7
+    Domain: org7.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org8
+    Domain: org8.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org9
+    Domain: org9.example.com
+    EnableNodeOUs: true
+
+    Template:
+      Count: 2
+      # Start: 5
+      # Hostname: {{.Prefix}}{{.Index}} # default
+      SANS:
+        - "localhost"
+
+    Users:
+      Count: 1
+  
+  - Name: Org10
+    Domain: org10.example.com
     EnableNodeOUs: true
 
     Template:

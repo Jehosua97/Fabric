@@ -12,6 +12,13 @@ const getCCP = async (org) => {
     org == 'Org1' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org1.json') : null
     org == 'Org2' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org2.json') : null
     org == 'Org3' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org3.json') : null
+    org == 'Org4' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org4.json') : null
+    org == 'Org5' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org5.json') : null
+    org == 'Org6' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org6.json') : null
+    org == 'Org7' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org7.json') : null
+    org == 'Org8' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org8.json') : null
+    org == 'Org9' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org9.json') : null
+    org == 'Org10' ? ccpPath = path.resolve(__dirname, '..', 'config', 'connection-org10.json') : null
     const ccpJSON = fs.readFileSync(ccpPath, 'utf8')
     const ccp = JSON.parse(ccpJSON);
     return ccp
@@ -22,6 +29,13 @@ const getCaUrl = async (org, ccp) => {
     org == 'Org1' ? caURL = ccp.certificateAuthorities['ca.org1.example.com'].url : null
     org == 'Org2' ? caURL = ccp.certificateAuthorities['ca.org2.example.com'].url : null
     org == 'Org3' ? caURL = ccp.certificateAuthorities['ca.org3.example.com'].url : null
+    org == 'Org4' ? caURL = ccp.certificateAuthorities['ca.org4.example.com'].url : null
+    org == 'Org5' ? caURL = ccp.certificateAuthorities['ca.org5.example.com'].url : null
+    org == 'Org6' ? caURL = ccp.certificateAuthorities['ca.org6.example.com'].url : null
+    org == 'Org7' ? caURL = ccp.certificateAuthorities['ca.org7.example.com'].url : null
+    org == 'Org8' ? caURL = ccp.certificateAuthorities['ca.org8.example.com'].url : null
+    org == 'Org9' ? caURL = ccp.certificateAuthorities['ca.org9.example.com'].url : null
+    org == 'Org10' ? caURL = ccp.certificateAuthorities['ca.org10.example.com'].url : null
     return caURL
 
 }
@@ -31,6 +45,13 @@ const getWalletPath = async (org) => {
     org == 'Org1' ? walletPath = path.join(process.cwd(), 'org1-wallet') : null
     org == 'Org2' ? walletPath = path.join(process.cwd(), 'org2-wallet') : null
     org == 'Org3' ? walletPath = path.join(process.cwd(), 'org3-wallet') : null
+    org == 'Org4' ? walletPath = path.join(process.cwd(), 'org4-wallet') : null
+    org == 'Org5' ? walletPath = path.join(process.cwd(), 'org5-wallet') : null
+    org == 'Org6' ? walletPath = path.join(process.cwd(), 'org6-wallet') : null
+    org == 'Org7' ? walletPath = path.join(process.cwd(), 'org7-wallet') : null
+    org == 'Org8' ? walletPath = path.join(process.cwd(), 'org8-wallet') : null
+    org == 'Org9' ? walletPath = path.join(process.cwd(), 'org9-wallet') : null
+    org == 'Org10' ? walletPath = path.join(process.cwd(), 'org10-wallet') : null
     return walletPath
 }
 
@@ -124,6 +145,13 @@ const getCaInfo = async (org, ccp) => {
     org == 'Org1' ? caInfo = ccp.certificateAuthorities['ca.org1.example.com'] : null
     org == 'Org2' ? caInfo = ccp.certificateAuthorities['ca.org2.example.com'] : null
     org == 'Org3' ? caInfo = ccp.certificateAuthorities['ca.org3.example.com'] : null
+    org == 'Org4' ? caInfo = ccp.certificateAuthorities['ca.org4.example.com'] : null
+    org == 'Org5' ? caInfo = ccp.certificateAuthorities['ca.org5.example.com'] : null
+    org == 'Org6' ? caInfo = ccp.certificateAuthorities['ca.org6.example.com'] : null
+    org == 'Org7' ? caInfo = ccp.certificateAuthorities['ca.org7.example.com'] : null
+    org == 'Org8' ? caInfo = ccp.certificateAuthorities['ca.org8.example.com'] : null
+    org == 'Org9' ? caInfo = ccp.certificateAuthorities['ca.org9.example.com'] : null
+    org == 'Org10' ? caInfo = ccp.certificateAuthorities['ca.org10.example.com'] : null
     return caInfo
 }
 

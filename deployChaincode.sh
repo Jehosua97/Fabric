@@ -3,6 +3,13 @@ export ORDERER_CA=${PWD}/artifacts/channel/crypto-config/ordererOrganizations/ex
 export PEER0_ORG1_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
 export PEER0_ORG2_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
 export PEER0_ORG3_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org3.example.com/peers/peer0.org3.example.com/tls/ca.crt
+export PEER0_ORG4_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org4.example.com/peers/peer0.org4.example.com/tls/ca.crt
+export PEER0_ORG5_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org5.example.com/peers/peer0.org5.example.com/tls/ca.crt
+export PEER0_ORG6_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org6.example.com/peers/peer0.org6.example.com/tls/ca.crt
+export PEER0_ORG7_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org7.example.com/peers/peer0.org7.example.com/tls/ca.crt
+export PEER0_ORG8_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org8.example.com/peers/peer0.org8.example.com/tls/ca.crt
+export PEER0_ORG9_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org9.example.com/peers/peer0.org9.example.com/tls/ca.crt
+export PEER0_ORG10_CA=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org10.example.com/peers/peer0.org10.example.com/tls/ca.crt
 export FABRIC_CFG_PATH=${PWD}/artifacts/channel/config/
 
 export CHANNEL_NAME=mychannel
@@ -34,6 +41,62 @@ setGlobalsForPeer0Org3(){
     export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG3_CA
     export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org3.example.com/users/Admin@org3.example.com/msp
     export CORE_PEER_ADDRESS=localhost:11051
+    
+}
+
+setGlobalsForPeer0Org4(){
+    export CORE_PEER_LOCALMSPID="Org4MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG4_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org4.example.com/users/Admin@org4.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11052
+    
+}
+
+setGlobalsForPeer0Org5(){
+    export CORE_PEER_LOCALMSPID="Org5MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG5_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org5.example.com/users/Admin@org5.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11053
+    
+}
+
+setGlobalsForPeer0Org6(){
+    export CORE_PEER_LOCALMSPID="Org6MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG6_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org6.example.com/users/Admin@org6.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11054
+    
+}
+
+setGlobalsForPeer0Org7(){
+    export CORE_PEER_LOCALMSPID="Org7MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG7_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org7.example.com/users/Admin@org7.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11055
+    
+}
+
+setGlobalsForPeer0Org8(){
+    export CORE_PEER_LOCALMSPID="Org8MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG8_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org8.example.com/users/Admin@org8.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11056
+    
+}
+
+setGlobalsForPeer0Org9(){
+    export CORE_PEER_LOCALMSPID="Org9MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG9_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org9.example.com/users/Admin@org9.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11057
+    
+}
+
+setGlobalsForPeer0Org10(){
+    export CORE_PEER_LOCALMSPID="Org10MSP"
+    export CORE_PEER_TLS_ROOTCERT_FILE=$PEER0_ORG10_CA
+    export CORE_PEER_MSPCONFIGPATH=${PWD}/artifacts/channel/crypto-config/peerOrganizations/org10.example.com/users/Admin@org10.example.com/msp
+    export CORE_PEER_ADDRESS=localhost:11058
     
 }
 
@@ -75,6 +138,34 @@ installChaincode() {
     setGlobalsForPeer0Org3
     peer lifecycle chaincode install ${CC_NAME}.tar.gz
     echo "===================== Chaincode is installed on peer0.org3 ===================== "
+
+    setGlobalsForPeer0Org4
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org4 ===================== "
+
+    setGlobalsForPeer0Org5
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org5 ===================== "
+    
+    setGlobalsForPeer0Org6
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org6 ===================== "
+
+    setGlobalsForPeer0Org7
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org7 ===================== "
+
+    setGlobalsForPeer0Org8
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org8 ===================== "
+
+    setGlobalsForPeer0Org9
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org9 ===================== "
+
+    setGlobalsForPeer0Org10
+    peer lifecycle chaincode install ${CC_NAME}.tar.gz
+    echo "===================== Chaincode is installed on peer0.org10 ===================== "
 }
 
 # installChaincode
@@ -115,7 +206,7 @@ approveForMyOrg1() {
 #--channel-config-policy Channel/Application/Admins
 # --signature-policy "OR ('Org1MSP.peer','Org2MSP.peer')"
 
-checkCommitReadyness() {
+checkCommitReadyness1() {
     setGlobalsForPeer0Org1
     peer lifecycle chaincode checkcommitreadiness \
         --channelID $CHANNEL_NAME --name ${CC_NAME} --version ${VERSION} \
@@ -140,13 +231,13 @@ approveForMyOrg2() {
 # queryInstalled
 # approveForMyOrg2
 
-checkCommitReadyness() {
+checkCommitReadyness2() {
 
     setGlobalsForPeer0Org2
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
-    echo "===================== checking commit readyness from org 1 ===================== "
+    echo "===================== checking commit readyness from org 2 ===================== "
 }
 
 # checkCommitReadyness
@@ -160,23 +251,204 @@ approveForMyOrg3() {
         --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
         --sequence ${SEQUENCE}
 
-    echo "===================== chaincode approved from org 2 ===================== "
+    echo "===================== chaincode approved from org 3 ===================== "
 }
 
 # queryInstalled
 # approveForMyOrg3
 
-checkCommitReadyness() {
+checkCommitReadyness3() {
 
     setGlobalsForPeer0Org3
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
         --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
-    echo "===================== checking commit readyness from org 1 ===================== "
+    echo "===================== checking commit readyness from org 3 ===================== "
 }
 
 # checkCommitReadyness
 
+approveForMyOrg4() {
+    setGlobalsForPeer0Org4
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 4 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg4
+
+checkCommitReadyness4() {
+
+    setGlobalsForPeer0Org4
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG4_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 4 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg5() {
+    setGlobalsForPeer0Org5
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 5 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg5
+
+checkCommitReadyness5() {
+
+    setGlobalsForPeer0Org5
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG5_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 5 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg6() {
+    setGlobalsForPeer0Org6
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 6 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg6
+
+checkCommitReadyness6() {
+
+    setGlobalsForPeer0Org6
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG6_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 6 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg7() {
+    setGlobalsForPeer0Org7
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 7 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg7
+
+checkCommitReadyness7() {
+
+    setGlobalsForPeer0Org7
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG7_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 7 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg8() {
+    setGlobalsForPeer0Org8
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 8 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg8
+
+checkCommitReadyness8() {
+
+    setGlobalsForPeer0Org8
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG8_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 8 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg9() {
+    setGlobalsForPeer0Org9
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 9 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg9
+
+checkCommitReadyness9() {
+
+    setGlobalsForPeer0Org9
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG9_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 9 ===================== "
+}
+
+# checkCommitReadyness
+
+approveForMyOrg10() {
+    setGlobalsForPeer0Org10
+
+    peer lifecycle chaincode approveformyorg -o localhost:7050 \
+        --ordererTLSHostnameOverride orderer.example.com --tls $CORE_PEER_TLS_ENABLED \
+        --cafile $ORDERER_CA --channelID $CHANNEL_NAME --name ${CC_NAME} \
+        --version ${VERSION} --init-required --package-id ${PACKAGE_ID} \
+        --sequence ${SEQUENCE}
+
+    echo "===================== chaincode approved from org 10 ===================== "
+}
+
+# queryInstalled
+# approveForMyOrg10
+
+checkCommitReadyness10() {
+
+    setGlobalsForPeer0Org10
+    peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG10_CA \
+        --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
+    echo "===================== checking commit readyness from org 10 ===================== "
+}
+
+# checkCommitReadyness
 commitChaincodeDefination() {
     setGlobalsForPeer0Org1
     peer lifecycle chaincode commit -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
@@ -185,6 +457,13 @@ commitChaincodeDefination() {
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA \
         --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA \
+        --peerAddresses localhost:11052 --tlsRootCertFiles $PEER0_ORG4_CA \
+        --peerAddresses localhost:11053 --tlsRootCertFiles $PEER0_ORG5_CA \
+        --peerAddresses localhost:11054 --tlsRootCertFiles $PEER0_ORG6_CA \
+        --peerAddresses localhost:11055 --tlsRootCertFiles $PEER0_ORG7_CA \
+        --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA \
+        --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA \
+        --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA \
         --version ${VERSION} --sequence ${SEQUENCE} --init-required
 
 }
@@ -207,7 +486,15 @@ chaincodeInvokeInit() {
         -C $CHANNEL_NAME -n ${CC_NAME} \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA \
-         --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA \
+        --peerAddresses localhost:11052 --tlsRootCertFiles $PEER0_ORG4_CA \
+        --peerAddresses localhost:11053 --tlsRootCertFiles $PEER0_ORG5_CA \
+        --peerAddresses localhost:11054 --tlsRootCertFiles $PEER0_ORG6_CA \
+        --peerAddresses localhost:11055 --tlsRootCertFiles $PEER0_ORG7_CA \
+        --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA \
+        --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA \
+        --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA \
+
         --isInit -c '{"Args":[]}'
 
 }
@@ -262,11 +549,25 @@ packageChaincode
 installChaincode
 queryInstalled
 approveForMyOrg1
-checkCommitReadyness
+checkCommitReadyness1
 approveForMyOrg2
-checkCommitReadyness
+checkCommitReadyness2
 approveForMyOrg3
-checkCommitReadyness
+checkCommitReadyness3
+approveForMyOrg4
+checkCommitReadyness4
+approveForMyOrg5
+checkCommitReadyness5
+approveForMyOrg6
+checkCommitReadyness6
+approveForMyOrg7
+checkCommitReadyness7
+approveForMyOrg8
+checkCommitReadyness8
+approveForMyOrg9
+checkCommitReadyness9
+approveForMyOrg10
+checkCommitReadyness10
 commitChaincodeDefination
 queryCommitted
 chaincodeInvokeInit

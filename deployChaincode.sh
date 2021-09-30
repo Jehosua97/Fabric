@@ -287,7 +287,7 @@ checkCommitReadyness4() {
 
     setGlobalsForPeer0Org4
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG4_CA \
+        --peerAddresses localhost:11052 --tlsRootCertFiles $PEER0_ORG4_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 4 ===================== "
 }
@@ -313,7 +313,7 @@ checkCommitReadyness5() {
 
     setGlobalsForPeer0Org5
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG5_CA \
+        --peerAddresses localhost:11053 --tlsRootCertFiles $PEER0_ORG5_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 5 ===================== "
 }
@@ -339,7 +339,7 @@ checkCommitReadyness6() {
 
     setGlobalsForPeer0Org6
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG6_CA \
+        --peerAddresses localhost:11054 --tlsRootCertFiles $PEER0_ORG6_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 6 ===================== "
 }
@@ -365,7 +365,7 @@ checkCommitReadyness7() {
 
     setGlobalsForPeer0Org7
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG7_CA \
+        --peerAddresses localhost:11055 --tlsRootCertFiles $PEER0_ORG7_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 7 ===================== "
 }
@@ -391,7 +391,7 @@ checkCommitReadyness8() {
 
     setGlobalsForPeer0Org8
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG8_CA \
+        --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 8 ===================== "
 }
@@ -417,7 +417,7 @@ checkCommitReadyness9() {
 
     setGlobalsForPeer0Org9
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG9_CA \
+        --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 9 ===================== "
 }
@@ -443,7 +443,7 @@ checkCommitReadyness10() {
 
     setGlobalsForPeer0Org10
     peer lifecycle chaincode checkcommitreadiness --channelID $CHANNEL_NAME \
-        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG10_CA \
+        --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA \
         --name ${CC_NAME} --version ${VERSION} --sequence ${VERSION} --output json --init-required
     echo "===================== checking commit readyness from org 10 ===================== "
 }
@@ -479,6 +479,7 @@ queryCommitted() {
 # queryCommitted
 
 chaincodeInvokeInit() {
+    echo "CHAIN CODE INVOKE INIT"
     setGlobalsForPeer0Org1
     peer chaincode invoke -o localhost:7050 \
         --ordererTLSHostnameOverride orderer.example.com \
@@ -494,7 +495,6 @@ chaincodeInvokeInit() {
         --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA \
         --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA \
         --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA \
-
         --isInit -c '{"Args":[]}'
 
 }
@@ -503,6 +503,7 @@ chaincodeInvokeInit() {
 
 chaincodeInvoke() {
     setGlobalsForPeer0Org1
+    echo "CHAIN CODE INVOKE"
 
     # Create Car
     peer chaincode invoke -o localhost:7050 \
@@ -512,7 +513,15 @@ chaincodeInvoke() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
-        -c '{"function": "createCar","Args":["{\"id\":\"1\",\"make\":\"Audi\",\"addedAt\":1600138309939,\"model\":\"R8\", \"color\":\"red\",\"owner\":\"pavan\"}"]}'
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG3_CA   \
+        --peerAddresses localhost:11052 --tlsRootCertFiles $PEER0_ORG4_CA   \
+        --peerAddresses localhost:11053 --tlsRootCertFiles $PEER0_ORG5_CA   \
+        --peerAddresses localhost:11054 --tlsRootCertFiles $PEER0_ORG6_CA   \
+        --peerAddresses localhost:11055 --tlsRootCertFiles $PEER0_ORG7_CA   \
+        --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA   \
+        --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA   \
+        --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA   \
+        -c '{"function": "CreateCar","Args":["{\"id\":\"3\",\"marca\":\"VW\",\"modelo\":\"Jetta 2011\",\"placas\":\"398-SKT\",\"verificentroid\":\"V1\",\"tecnicoid\":\"T1\",\"odometroid\":\"Od1\",\"validadorid\":\"V4\",\"status\":\"Calcomania 0\",\"co\":\"0.1\",\"co2\":\"14.7\",\"o2\":\"0.1\",\"noxppm\":\"106\",\"cargahp\":\"12.2\"}"]}'
 
 }
 
@@ -529,6 +538,14 @@ chaincodeInvokeDeleteAsset() {
         -C $CHANNEL_NAME -n ${CC_NAME}  \
         --peerAddresses localhost:7051 --tlsRootCertFiles $PEER0_ORG1_CA \
         --peerAddresses localhost:9051 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11051 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11052 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11053 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11054 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11055 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG2_CA   \
+        --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG2_CA   \        
         -c '{"function": "DeleteCarById","Args":["2"]}'
 
 }

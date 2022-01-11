@@ -42,7 +42,7 @@ sleep 3
 echo "Deploying the chaincode"
 ./deployChaincode.sh 
 echo "CONGRATULATION YOUR NETWORK IS UP RUNNING"
-sleep 100
+sleep 5
 #Instalacion de dependencias de API
 cd api-2.0
 echo "Installing the API dependencies"  

@@ -455,7 +455,7 @@ Profiles:
     # SampleSingleMSPKafka defines a configuration that differs from the
     # SampleSingleMSPSolo one only in that it uses the Kafka-based orderer.
     SampleSingleMSPKafka:
-        <<: *ChannelDefaults
+        <<: *
         Orderer:
             <<: *OrdererDefaults
             OrdererType: kafka

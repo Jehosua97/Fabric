@@ -28,6 +28,7 @@ type Car struct {
 	OdometroId     string `json:"odometroid"`
 	CCVValId       string `json:"ccvvalid"`
 	ValidadorId    string `json:"validadorid"`
+	LineaVerifica  string `json:"lineaverifica"`
 	Status         string `json:"status"`
 	TapaGasolina   string `json:"tapagasolina"`
 	BayonetaAceite string `json:"bayonetaaceite"`
@@ -43,6 +44,8 @@ type Car struct {
 	NOxppm         string `json:"noxppm"`
 	HCxpmm         string `json:"hidrocarburo"`
 	Lambda         string `json:"lambda"`
+	CreateDate     string `json:"createdate"`
+	UpadateDate    string `json:"updatedate"`
 	AddedAt        uint64 `json:"addedAt"`
 }
 

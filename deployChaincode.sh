@@ -521,7 +521,7 @@ chaincodeInvoke() {
         --peerAddresses localhost:11056 --tlsRootCertFiles $PEER0_ORG8_CA   \
         --peerAddresses localhost:11057 --tlsRootCertFiles $PEER0_ORG9_CA   \
         --peerAddresses localhost:11058 --tlsRootCertFiles $PEER0_ORG10_CA   \
-        -c '{"function": "CreateCar","Args":["{\"id\":\"0\",\"marca\":\"VW\",\"modelo\":\"Jetta 2011\",\"placas\":\"398-SKT\",\"verificentroid\":\"V1\",\"tecnicoid\":\"T1\",\"odometroid\":\"Od1\",\"validadorid\":\"V4\",\"status\":\"Calcomania 0\",\"co\":\"0.1\",\"co2\":\"14.7\",\"o2\":\"0.1\",\"noxppm\":\"106\",\"cargahp\":\"12.2\"}"]}'
+        -c '{"function": "CreateCar","Args":["{\"id\":\"0\",\"marca\":\"VW\",\"modelo\":\"Jetta 2011\",\"placas\":\"398-SKT\",\"verificentroid\":\"V1\",\"tecnicoid\":\"T1\",\"odometroid\":\"Od1\",\"validadorid\":\"V4\",\"status\":\"Calcomania 0\",\"co\":\"0.1\",\"co2\":\"14.7\",\"o2\":\"0.1\",\"noxppm\":\"106\",\"cargahp\":\"12.2\",\"niv\":\"HSJ73728\",\"hologramaObtenido\":\"0\"}"]}'
 
 }
 

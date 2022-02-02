@@ -21,6 +21,7 @@ type Car struct {
 	ID                string `json:"id"`
 	HologramaObtenido string `json:"hologramaObtenido"`
 	Niv               string `json:"niv"`
+	Comentarios       string `json:"comentarios"`
 	Marca             string `json:"marca"`
 	Modelo            string `json:"modelo"`
 	Placas            string `json:"placas"`
